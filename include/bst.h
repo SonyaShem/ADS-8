@@ -52,11 +52,14 @@ public:
     ~BST() { clear(root); }
     void insert(const T& value) { root = insertNode(root, value); }
     int depth() const { return getDepth(root); }
-    Node* search(T value) const { return searchNode(root, value); }
+    int search(T value) const {
+        Node* res = searchNode(root, value);
+        return res != nullptr ? res->count : 0;
+    }
     std::vector<Node*> getAllNodes() const {
         std::vector<Node*> nodes;
         collectNodes(root, nodes);
         return nodes;
     }
 };
-#endif  // INCLUDE_BST_H_
+#endif
