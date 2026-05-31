@@ -1,20 +1,21 @@
 // Copyright 2021 NNTU-CS
-#ifndef BST_H
-#define BST_H
+#ifndef INCLUDE_BST_H_
+#define INCLUDE_BST_H_
 #include <iostream>
 #include <string>
 #include <vector>
 template <typename T>
 class BST {
-public:
+ public:
     struct Node {
         T key;
         int count;
         Node* left;
         Node* right;
-        Node(T value) : key(value), count(1), left(nullptr), right(nullptr) {}
+        explicit Node(T value) : key(value), count(1), left(nullptr), right(nullptr) {}
     };
-private:
+
+ private:
     Node* root;
     void clear(Node* node) {
         if (node != nullptr) {
@@ -47,7 +48,8 @@ private:
         nodes.push_back(node);
         collectNodes(node->right, nodes);
     }
-public:
+
+ public:
     BST() : root(nullptr) {}
     ~BST() { clear(root); }
     void insert(const T& value) { root = insertNode(root, value); }
@@ -62,4 +64,4 @@ public:
         return nodes;
     }
 };
-#endif
+#endif  // INCLUDE_BST_H_
