@@ -24,7 +24,7 @@ private:
         }
     }
     int getDepth(Node* node) const {
-        if (node == nullptr) return 0;
+        if (node == nullptr) return -1;
         int leftDepth = getDepth(node->left);
         int rightDepth = getDepth(node->right);
         return 1 + (leftDepth > rightDepth ? leftDepth : rightDepth);
